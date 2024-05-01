@@ -7,6 +7,8 @@ export async function getMeals() {
   // an arbitrary(optional) delay to simulate an action that takes a bit longer
   await new Promise((resolve) => setTimeout(resolve, 2000));
 
+  // throw new Error('Loading meals failed!');
+
   //select all columns from the meals table | then run it with "all"
   return db.prepare('SELECT * FROM meals').all();
 }
