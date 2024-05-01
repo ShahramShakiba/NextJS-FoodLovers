@@ -27,7 +27,7 @@ export default function ImageSlideshow() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) =>
-      // if it's less than the last index, increments the index by 1
+        // if it's less than the last index, increments the index by 1
         prevIndex < images.length - 1 ? prevIndex + 1 : 0
       );
     }, 4000);
@@ -39,6 +39,7 @@ export default function ImageSlideshow() {
     <div className={classes.slideshow}>
       {images.map((image, index) => (
         <Image
+          //uniquely identify each images to update the DOM when the list changes
           key={index}
           src={image.image}
           className={index === currentImageIndex ? classes.active : ''}
