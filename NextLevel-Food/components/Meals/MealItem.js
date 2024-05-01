@@ -28,10 +28,6 @@ export default function MealItem({ title, slug, image, summary, creator }) {
   );
 }
 
-/* fill prop
-- you can use the "fill" prop instead of setting a "width" and "height" whenever you have an image where you don't know the dimensions in advance. 
-*/
-
 /* fetch Image from public folder
 
 - images will not be imported manually from the assets-folder
@@ -50,4 +46,8 @@ export default function MealItem({ title, slug, image, summary, creator }) {
 
 -  by fetching images from the public folder, you're making your application faster and more efficient, just like cooking becomes easier when you have all your ingredients close by in your kitchen.
 
+*/
+
+/* fill prop
+- you can use the "fill" prop instead of setting a "width" and "height" whenever you have an image where you don't know the dimensions in advance. 
 */
