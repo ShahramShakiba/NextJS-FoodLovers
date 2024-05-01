@@ -13,6 +13,27 @@ body {
   background: radial-gradient(#282c34, #282c34);
 }
 
+.ExclamationTriangle {
+  font-size: 5rem;
+  color: #ffc905;
+  margin-bottom: 2rem;
+}
+
+.action-home {
+  background: linear-gradient(90deg, #fa6a42, #fcd033);
+  color: #262626;
+  font-weight: bold;
+  padding: 0.6rem 1.2rem;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.2s ease-in;
+  margin-top: 2.5rem;
+}
+
+.action-home:hover {
+  background: linear-gradient(90deg, #ff3d08, #f8c302);
+}
+
 .not-found,
 .error {
   margin-top: 5rem;
@@ -21,7 +42,7 @@ body {
 
 .not-found h1,
 .error h1 {
-  font-size: 5rem;
+  font-size: 4rem;
   margin: 0px;
   font-weight: 900;
   color: #262626;
