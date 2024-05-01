@@ -1,8 +1,11 @@
 import Link from 'next/link';
 import classes from './page.module.css';
 import MealsGrid from '@/components/Meals/MealsGrid';
+import { getMeals } from '@/lib/meals';
 
-export default function MealsPage() {
+export default async function MealsPage() {
+  const meals = await getMeals();
+
   return (
     <>
       <header className={classes.header}>
@@ -20,11 +23,22 @@ export default function MealsPage() {
       </header>
 
       <main className={classes.main}>
-        <MealsGrid meals={[]} />
+        <MealsGrid meals={meals} />
       </main>
     </>
   );
 }
+
+/* why "await" 
+- Think of await like a pause button in a video game. 
+- When your function reaches an await keyword, it pauses execution right there and lets other code run while it waits for something to finish.
+ 
+- In this case, await getMeals() pauses the function until it gets the meals data it needs. 
+- This ensures that your page won't try to render before it has all the necessary information, like trying to serve dinner before it's even cooked!
+
+- Once the meals are ready, the function resumes, and you can proceed to display them on your page. 
+- So, await helps keep everything in order and ensures your page loads smoothly.
+*/
 
 /* better-sqlite3
 - npm install better-sqlite3 

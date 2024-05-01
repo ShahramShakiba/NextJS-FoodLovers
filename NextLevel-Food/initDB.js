@@ -1,7 +1,7 @@
-// sqlite package
-const sql = require('better-sqlite3');
+// import sqlite package
+const SQL = require('better-sqlite3');
 // create a new database called meals.db
-const db = sql('meals.db');
+const db = SQL('meals.db');
 
 const dummyMeals = [
   {
