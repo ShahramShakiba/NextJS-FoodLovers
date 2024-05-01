@@ -25,3 +25,18 @@ export default function MealsPage() {
     </>
   );
 }
+
+/* better-sqlite3
+- npm install better-sqlite3 
+
+- that will allow us to work with SQL-Lite Database
+
+- it can be used locally without setting up any extra database-server or any other complex setup needed it
+
+* creating Database
+- create initDB.js file in root-route
+- configure our data there
+- then, in terminal run:   node initDB.js
+- it will create our sqlite-database-file
+  here is: "meals.db"
+*/
