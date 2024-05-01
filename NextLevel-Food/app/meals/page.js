@@ -1,11 +1,17 @@
 import Link from 'next/link';
+import { Suspense } from 'react';
+
+import { getMeals } from '@/lib/meals';
 import classes from './page.module.css';
 import MealsGrid from '@/components/Meals/MealsGrid';
-import { getMeals } from '@/lib/meals';
 
-export default async function MealsPage() {
+async function Meals() {
   const meals = await getMeals();
 
+  return <MealsGrid meals={meals} />;
+}
+
+export default function MealsPage() {
   return (
     <>
       <header className={classes.header}>
@@ -23,13 +29,17 @@ export default async function MealsPage() {
       </header>
 
       <main className={classes.main}>
-        <MealsGrid meals={meals} />
+        <Suspense
+          fallback={<p className={classes.loading}>Fetching meals...</p>}
+        >
+          <Meals />
+        </Suspense>
       </main>
     </>
   );
 }
 
-/* why "await" 
+/* --------- why "await" -----------
 - Think of await like a pause button in a video game. 
 - When your function reaches an await keyword, it pauses execution right there and lets other code run while it waits for something to finish.
  
@@ -40,7 +50,7 @@ export default async function MealsPage() {
 - So, await helps keep everything in order and ensures your page loads smoothly.
 */
 
-/* better-sqlite3
+/* -------- better-sqlite3 ----------
 - npm install better-sqlite3 
 
 - that will allow us to work with SQL-Lite Database
@@ -53,4 +63,12 @@ export default async function MealsPage() {
 - then, in terminal run:   node initDB.js
 - it will create our sqlite-database-file
   here is: "meals.db"
+*/
+
+/* ------------ Suspense -------------- 
+- handling loading states & show fallback content
+*/
+
+/* ---------- React Spinners ----------
+- npm install --save react-spinners
 */
