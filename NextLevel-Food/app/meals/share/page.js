@@ -2,6 +2,21 @@ import ImagePicker from '@/components/Meals/ImagePicker';
 import classes from './page.module.css';
 
 export default function ShareMealPage() {
+  //a fn that's execute on the server | Server-Action
+  async function shareMeal(formData) {
+    'use server';
+
+    //get input-field "name"
+    const meal = {
+      title: formData.get('title'),
+      summary: formData.get('summary'),
+      instructions: formData.get('instructions'),
+      image: formData.get('image'),
+      creator: formData.get('name'),
+      creator_email: formData.get('email'),
+    };
+  }
+
   return (
     <>
       <header className={classes.header}>
@@ -12,7 +27,7 @@ export default function ShareMealPage() {
       </header>
 
       <main className={classes.main}>
-        <form className={classes.form}>
+        <form className={classes.form} action={shareMeal}>
           <div className={classes.row}>
             <p>
               <label htmlFor="name"> Your name </label>
@@ -45,7 +60,7 @@ export default function ShareMealPage() {
             ></textarea>
           </p>
 
-          <ImagePicker />
+          <ImagePicker label="Your image" name="image" />
 
           <p className={classes.actions}>
             <button type="submit"> Share Meal </button>
@@ -55,3 +70,9 @@ export default function ShareMealPage() {
     </>
   );
 }
+
+/* --------------- shareMeal | server-action ------------
+- NextJS behind the scenes create a request and send it to this NextJS server that's serving the website so this fn "shareMeal" triggered and then you can handle the form submission there but on the server
+
+- automatically receive that formData that was submitted, the data that was gathered by the inputs in the form
+*/
