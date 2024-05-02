@@ -53,3 +53,19 @@ export default function Home() {
     </>
   );
 }
+
+/* server Component - Client Component
+
+? server component:
+- fetch data
+- access backend resources(directly)
+- keep sensitive info on the server (access token, API, Keys. etc)
+- keep large dependencies on the server / reduce client side javascript
+
+? Client Component:
+- add interactivity and event listeners(onClick(), onChange(), etc)
+- use state and lifecycle effects(useState(), useReducer(), useEffect(), etc)
+- use browser-only API
+- use custom hooks that depend on state, effects or browser-only API
+- use React Class Components
+*/

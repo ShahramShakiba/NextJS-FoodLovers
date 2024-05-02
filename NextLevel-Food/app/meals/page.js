@@ -5,6 +5,7 @@ import { getMeals } from '@/lib/meals';
 import classes from './page.module.css';
 import MealsGrid from '@/components/Meals/MealsGrid';
 
+//  out-source data-fetching part into a separate-component
 async function Meals() {
   const meals = await getMeals();
 
