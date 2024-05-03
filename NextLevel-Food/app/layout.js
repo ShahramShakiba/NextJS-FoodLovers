@@ -2,10 +2,17 @@ import './globals.css';
 import MainHeader from '@/components/MainHeader/MainHeader';
 
 export const metadata = {
+  generator: 'Next.js',
+  applicationName: 'NextLevel Food',
   title: 'NextLevel Food',
   description: 'Delicious meals, shared by a food-loving community.',
-  author: 'Shahram Shakiba',
-  keywords: 'food, find foods, delicious',
+  creator: 'Shahram Shakiba',
+  keywords: ['food', 'find foods', 'delicious'],
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
 };
 
 export default function RootLayout({ children }) {

@@ -118,3 +118,7 @@ export async function saveMeal(meal) {
 
 ? write(what you want to write, anonymous-fn that will be executed once it's done writing )
 */
+
+/* --------------- AWS S3 Image Upload -----------------
+- npm install @aws-sdk/client-s3
+*/
