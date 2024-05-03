@@ -14,7 +14,9 @@
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.2.0",
-    "react-spinners": "^0.13.8"
+    "react-spinners": "^0.13.8",
+    "slugify": "^1.6.6",
+    "xss": "^1.0.15"
   },
   "devDependencies": {
     "eslint": "^8",
