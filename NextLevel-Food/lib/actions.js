@@ -1,4 +1,6 @@
 'use server';
+import { saveMeal } from './meals';
+import { redirect } from 'next/navigation';
 
 //a fn that's execute on the server | Server-Action
 export async function shareMeal(formData) {
@@ -11,6 +13,10 @@ export async function shareMeal(formData) {
     creator: formData.get('name'),
     creator_email: formData.get('email'),
   };
+
+  await saveMeal(meal);
+
+  redirect('/meals');
 }
 
 /* --------------- shareMeal | server-action ------------
