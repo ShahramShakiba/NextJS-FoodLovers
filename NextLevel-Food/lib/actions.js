@@ -26,7 +26,7 @@ export async function shareMeal(prevState, formData) {
     isInvalidText(meal.instructions) ||
     isInvalidText(meal.creator) ||
     isInvalidText(meal.creator_email) ||
-    !email.creator_email.includes('@') ||
+    !meal.creator_email.includes('@') ||
     !meal.image ||
     meal.image.size === 0
   ) {

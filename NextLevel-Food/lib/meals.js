@@ -4,6 +4,7 @@ import xss from 'xss';
 import fs from 'node:fs';
 import slugify from 'slugify';
 import sql from 'better-sqlite3';
+import { v4 as uuidv4 } from 'uuid';
 
 const db = sql('meals.db');
 
@@ -23,7 +24,15 @@ export function getMeal(slug) {
 
 export async function saveMeal(meal) {
   //create a new slug from title with lowercase
-  meal.slug = slugify(meal.title, { lower: true });
+  let slug = slugify(meal.title, { lower: true });
+
+  const existingMeal = getMeal(slug);
+  if (existingMeal) {
+    // generate a new unique slug
+    slug = `${slug}-${uuidv4()}`;
+  }
+  meal.slug = slug;
+
   //remove any harmful content from instructions - Sanitizing user-input
   meal.instructions = xss(meal.instructions);
 
@@ -121,4 +130,10 @@ export async function saveMeal(meal) {
 
 /* --------------- AWS S3 Image Upload -----------------
 - npm install @aws-sdk/client-s3
+*/
+
+/* ---------------- uuid package -------------------
+- npm install uuid   -> to generate a unique identifier.
+
+- to ensure that each meal has a unique slug. One way to achieve this is by appending a unique identifier to the slug. We can use the uuid package to generate a unique identifier.
 */
